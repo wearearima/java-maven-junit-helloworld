@@ -1,11 +1,16 @@
 package com.example.javamavenjunithelloworld;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.PrintStream;
 
 /**
  * Simple class that says "Hello!".
  */
 public class Hello {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Hello.class);
 
     static final String HELLO = "Hello!";
     public static final int MAXIMUM_AMOUNT_OF_TIMES = 20;
@@ -22,6 +27,9 @@ public class Hello {
             throw new IllegalArgumentException("Parameter «times» should be a positive integer no larger than "
                     + MAXIMUM_AMOUNT_OF_TIMES + ".");
         }
+
+        LOGGER.info("Change times value to {}", times);
+
         this.times = (short) times;
     }
 
